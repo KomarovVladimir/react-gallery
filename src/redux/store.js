@@ -1,15 +1,13 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import sagas from './saga.js';
-import albumsReducer from './slices/albumsListSlice';
-import imagesReducer from './slices/imagesListSlice';
+import galleryReducer from './slices/gallerySlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store =  configureStore({
   reducer: {
-    albums: albumsReducer,
-    images: imagesReducer
+    albums: galleryReducer,
   },
   middleware: [...getDefaultMiddleware(),  sagaMiddleware]
 });

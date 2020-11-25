@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAlbums } from '../../redux/slices/albumsListSlice';
+import { getAlbums } from '../../redux/slices/gallerySlice';
 import Album from '../Album';
 
 function AlbumsList() {
