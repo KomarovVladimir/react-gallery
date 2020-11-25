@@ -10,12 +10,12 @@ function Album(props) {
         dispatch(getAlbumImages(props.id));
     }, []);
 
-    const handleClick = albumId => () => {
-        dispatch();
+    const handleClick = () => {
+        // dispatch();
     }
 
     return (
-        <div className={styles.item}>
+        <div className={styles.item} onClick={handleClick}>
             <img  className={styles.thumbnail} src={props.thumbnailUrl} alt={props.alt} />
             <span className={styles.name}>{props.title}</span>
             <span className={styles.label}>{props.imagesNumber} images</span>

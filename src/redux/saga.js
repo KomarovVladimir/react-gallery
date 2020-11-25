@@ -9,7 +9,7 @@ import {
 
 function* requestAlbums() {
     try {
-        let response = yield fetch('https://jsonplaceholder.typicode.com/albums');
+        let response = yield fetch('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=16');
         const albums = yield response.json();
         
         yield put({ type: getAlbumsSuccess.type, payload: albums });
