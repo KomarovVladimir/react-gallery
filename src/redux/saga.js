@@ -27,7 +27,7 @@ function* requestAlbumImages(action) {
         yield put({ type: getAlbumImagesSuccess.type, payload: {
             id: action.payload,
             thumbnailUrl: images[0].thumbnailUrl,
-            imagesNumber: images.length
+            images: [...images],
         } });
     } catch (error) {
         console.error(error);

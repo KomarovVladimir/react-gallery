@@ -29,7 +29,8 @@ export const albumsListSlice = createSlice({
             item.id === action.payload.id ? {
               ...item, 
               thumbnailUrl: action.payload.thumbnailUrl,
-              imagesNumber: action.payload.imagesNumber,
+              images: action.payload.images,
+              imagesNumber: action.payload.images.length,
               thumbnailIsLoading: false,
           } : item));
         },
