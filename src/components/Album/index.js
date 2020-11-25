@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Album.scss';
+import styles from './album.scss';
 
 function Album(props) {
     return (

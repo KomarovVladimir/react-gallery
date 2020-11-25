@@ -5,7 +5,6 @@ function* requestGalleries() {
     try {
         let response = yield fetch('https://jsonplaceholder.typicode.com/albums');
         const albums = yield response.json();
-        console.log(albums);
         yield put({ type: requestAlbumsSuccess.type, payload: albums });
     } catch (error) {
         console.error(error);

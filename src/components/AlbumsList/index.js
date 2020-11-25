@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { requestAlbums } from '../../redux/slices/albumsListSlice';
-// import Album from '../Album';
+import Album from '../Album';
 
 function AlbumsList() {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function AlbumsList() {
     
     return (
         <div>
-            {/* {albums.items.map(album => <Album {...album} />)} */}
+            {albums.items.map(album => <Album {...album} />)}
         </div>
     );
 }
