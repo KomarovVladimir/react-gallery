@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAlbums } from '../../redux/slices/gallerySlice';
 import Album from '../Album';
+import styles from './albumsList.module.scss';
 
 function AlbumsList() {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function AlbumsList() {
     }, []);
     
     return (
-        <div>
+        <div className={styles.albumsList}>
             {albums.items.map(album => <Album key={album.id} {...album} />)}
         </div>
     );

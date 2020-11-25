@@ -16,7 +16,7 @@ function Album(props) {
 
     return (
         <div className={styles.item}>
-            <img  className={styles.Images} src={props.thumbnailUrl} alt={props.alt} />
+            <img  className={styles.thumbnail} src={props.thumbnailUrl} alt={props.alt} />
             <span className={styles.name}>{props.title}</span>
             <span className={styles.label}>{props.imagesNumber} images</span>
         </div>
