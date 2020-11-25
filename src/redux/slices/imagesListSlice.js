@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const galleriesListSlice = createSlice({
-    name: 'galleries', 
+export const imagesListSlice = createSlice({
+    name: 'images', 
     initialState: {
       items: [],
       isLoading: false
@@ -20,6 +20,6 @@ export const galleriesListSlice = createSlice({
     },
   });
 
-  export const { requestGalleries, requestGalleriesSuccess, requestGalleriesFailure } = galleriesListSlice.actions;
+  export const { request, requestSuccess, requestFailure } = imagesListSlice.actions;
   
-  export default galleriesListSlice.reducer;
+  export default imagesListSlice.reducer;
