@@ -7,19 +7,26 @@ export const albumsListSlice = createSlice({
       isLoading: false
     },
     reducers: {
-        requestAlbums: state => {
+        getAlbums: state => {
           state.isLoading = true;
         },
-        requestAlbumsSuccess: (state, action) => {
+        getAlbumsSuccess: (state, action) => {
           state.isLoading = false;
           state.items = [...action.payload];
         },
-        requestAlbumsFailure: state => {
+        getAlbumsFailure: state => {
           state.isLoading = false;
+        },
+        getAlbumThumbnail: () => {},
+        getAlbumThumbnailSuccess: (state, action) => {
+          state.items = state.items.map(item => item.id === action.payload.id ? {...item, thumbnailUrl: action.payload.thumbnailUrl} : item)
+        },
+        getAlbumThumbnailFailure: (state, action) => {
+          // state.items[action.payload].isLoadingImages = false;
         },
     },
   });
 
-  export const { requestAlbums, requestAlbumsSuccess, requestAlbumsFailure } = albumsListSlice.actions;
+  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, getAlbumThumbnail, getAlbumThumbnailSuccess, getAlbumThumbnailFailure } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;

@@ -7,19 +7,19 @@ export const imagesListSlice = createSlice({
       isLoading: false
     },
     reducers: {
-        request: state => {
+        requestImages: state => {
           state.isLoading = true;
         },
-        requestSuccess: (state, action) => {
+        requestImagesSuccess: (state, action) => {
           state.isLoading = false;
           state.items = [...action.payload];
         },
-        requestFailure: state => {
+        requestImagesFailure: state => {
           state.isLoading = false;
         },
     },
   });
 
-  export const { request, requestSuccess, requestFailure } = imagesListSlice.actions;
+  export const { requestImages, requestImagesSuccess, requestImagesFailure } = imagesListSlice.actions;
   
   export default imagesListSlice.reducer;

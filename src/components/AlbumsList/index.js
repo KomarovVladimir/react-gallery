@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { requestAlbums } from '../../redux/slices/albumsListSlice';
+import { getAlbums } from '../../redux/slices/albumsListSlice';
 import Album from '../Album';
 
 function AlbumsList() {
@@ -8,12 +8,12 @@ function AlbumsList() {
     const albums = useSelector(state => state.albums);
 
     useEffect(() => {
-        dispatch(requestAlbums());
+        dispatch(getAlbums());
     }, []);
     
     return (
         <div>
-            {albums.items.map(album => <Album {...album} />)}
+            {albums.items.map(album => <Album key={album.id} {...album} />)}
         </div>
     );
 }

@@ -1,19 +1,52 @@
 import { put, takeEvery } from 'redux-saga/effects';
-import { requestAlbums, requestAlbumsSuccess, requestAlbumsFailure } from './slices/albumsListSlice';
+import { 
+    getAlbums,
+    getAlbumsSuccess,
+    getAlbumsFailure, 
+    getAlbumThumbnail, 
+    getAlbumThumbnailSuccess, 
+    getAlbumThumbnailFailure } from './slices/albumsListSlice';
 
-function* requestGalleries() {
+function* requestAlbums() {
     try {
         let response = yield fetch('https://jsonplaceholder.typicode.com/albums');
         const albums = yield response.json();
-        yield put({ type: requestAlbumsSuccess.type, payload: albums });
+        
+        yield put({ type: getAlbumsSuccess.type, payload: albums });
     } catch (error) {
         console.error(error);
-        yield put({ type: requestAlbumsFailure.type });
+        yield put({ type: getAlbumsFailure.type });
     }
 }
 
-function* requestGalleriesWatcher() {
-    yield takeEvery(requestAlbums.type, requestGalleries);
+function* requestAlbumThumbnail(action) {
+    try {
+        let response = yield fetch(`https://jsonplaceholder.typicode.com/albums/${action.payload}/photos?_start=0&_limit=1`);
+        const firstImage = yield response.json();
+
+        yield put({ type: getAlbumThumbnailSuccess.type, payload: {
+            id: action.payload,
+            thumbnailUrl: firstImage[0].thumbnailUrl
+        } });
+    } catch (error) {
+        console.error(error);
+        yield put({ type: getAlbumThumbnailFailure.type });
+    }
 }
 
-export default requestGalleriesWatcher;
+// function* requestImages(action) {
+//     try {
+//         let response = yield fetch(`https://jsonplaceholder.typicode.com/albums/${action.payload}/photos`);
+//         const images = yield response.json();
+//         console.log(images);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+
+function* albumsWatcher() {
+    yield takeEvery(getAlbums.type, requestAlbums);
+    yield takeEvery(getAlbumThumbnail.type, requestAlbumThumbnail);
+}
+
+export default albumsWatcher;
