@@ -7,14 +7,14 @@ export const galleriesListSlice = createSlice({
       isLoading: false
     },
     reducers: {
-        requestGalleries: state => {
+        request: state => {
           state.isLoading = true;
         },
-        requestGalleriesSuccess: (state, action) => {
+        requestSuccess: (state, action) => {
           state.isLoading = false;
           state.items = [...action.payload];
         },
-        requestGalleriesFailure: state => {
+        requestFailure: state => {
           state.isLoading = false;
         },
     },
