@@ -6,7 +6,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          {/* <AlbumGallery /> */}
+          {/* <AlbumList /> */}
         </Route>
         <Route path="/album">
           {/* <Album /> */}

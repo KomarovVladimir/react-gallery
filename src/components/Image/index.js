@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './galleryImage.scss';
+import styles from './Image.scss';
 
-function GalleryImage(props) {
+function Image(props) {
     return <img  className={styles.thumbnail} src={props.src} alt={props.alt} />;
 }
 
-export default GalleryImage;
+export default Image;

@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './galleryItem.scss';
+import styles from './Album.scss';
 
-function GalleryItem(props) {
+function Album(props) {
     return (
         <div className={styles.item}>
             <img  className={styles.thumbnail} src={props.src} alt={props.alt} />
@@ -11,4 +11,4 @@ function GalleryItem(props) {
     );
 }
 
-export default GalleryItem;
+export default Album;
