@@ -1,17 +1,20 @@
-import { takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
+import { requestAlbums, requestAlbumsSuccess, requestAlbumsFailure } from './slices/albumsListSlice';
 
 function* requestGalleries() {
     try {
         let response = yield fetch('https://jsonplaceholder.typicode.com/albums');
-        response = yield response.json();
-        console.log(response);
+        const albums = yield response.json();
+        console.log(albums);
+        yield put({ type: requestAlbumsSuccess.type, payload: albums });
     } catch (error) {
         console.error(error);
+        yield put({ type: requestAlbumsFailure.type });
     }
 }
 
 function* requestGalleriesWatcher() {
-    yield takeEvery('galleries/request', requestGalleries);
+    yield takeEvery(requestAlbums.type, requestGalleries);
 }
 
 export default requestGalleriesWatcher;
