@@ -19,10 +19,13 @@ export const albumsListSlice = createSlice({
         },
         setCurrentAlbum: (state, action) => {
           state.currentAlbum = state.items.find(album => album.id === action.payload);
-        }
+        },
+        setCurrentImage: (state, action) => {
+          state.currentImage = state.currentAlbum.images.find(image => image.id === action.payload);
+        },
     },
   });
 
-  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum } = albumsListSlice.actions;
+  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum, setCurrentImage } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;

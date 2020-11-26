@@ -1,0 +1,41 @@
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.content {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.carousel {
+    position: relative;
+    height: 4rem;
+    width: 100%;
+}
+
+.arrow {
+    position: absolute;
+
+    &Left {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &Right {
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

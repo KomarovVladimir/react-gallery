@@ -7,12 +7,12 @@ import {
 
 function* requestAlbums() {
     try {
-        let albumsResponse = yield fetch('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=16');
+        let albumsResponse = yield fetch('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=8');
         const albums = yield albumsResponse.json();
 
         let filledAlbums = [];
         for (let album of albums) {
-            let photosResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos`);
+            let photosResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos?_start=0&_limit=8`);
             const photos = yield photosResponse.json();
             filledAlbums.push({...album, images: photos});
         }
