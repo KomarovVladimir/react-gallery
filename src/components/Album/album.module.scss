@@ -1,14 +1,3 @@
-.item {
-    position: relative;
-    transition: .3s ease-out;
-
-    &:hover {
-        // top: -.5rem;
-        transform: translateY(-.5rem);
-        background-color: #afafaf;
-    }
-}
-
 .thumbnail {
     display: block;
     width: 100%;

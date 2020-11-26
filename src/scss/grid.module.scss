@@ -1,0 +1,29 @@
+@import './variables';
+
+.gallery {
+    display: grid;
+    grid-template-columns: minmax(16rem, 1fr);
+    grid-gap: 2rem;
+
+    @media screen and (min-width: $sm) {
+        grid-template-columns: repeat(2, minmax(16rem, 1fr));
+    }
+
+    @media screen and (min-width: $md) {
+        grid-template-columns: repeat(3, minmax(16rem, 1fr));
+    }
+
+    @media screen and (min-width: $lg) {
+        grid-template-columns: repeat(4, minmax(16rem, 1fr));
+    }
+}
+
+.item {
+    position: relative;
+    transition: .3s ease-out;
+
+    &:hover {
+        transform: translateY(-.5rem);
+        background-color: #afafaf;
+    }
+}
