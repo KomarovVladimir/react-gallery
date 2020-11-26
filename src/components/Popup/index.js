@@ -1,7 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styles from './popup.module.scss';
 
 function Popup(props) {
+    const currentAlbumImages = useSelector(state => state.albums.currentAlbum.images);
+
     return (
         <div className={styles.popup}>
             <div className={styles.content}>
@@ -10,7 +13,7 @@ function Popup(props) {
                 <div className={styles.carousel}>
                     <button className={`${styles.arrow} ${styles.arrowLeft}`}>Left</button>
                     <button className={`${styles.arrow} ${styles.arrowRight}`}>Right</button>
-                    {/* <img src="" alt=""/> */}
+                    {currentAlbumImages && currentAlbumImages.map(image => <img key={image.id} className={styles.carouselItem} src={image.thumbnailUrl} alt={image.title} />)}
                 </div>
             </div>
         </div>

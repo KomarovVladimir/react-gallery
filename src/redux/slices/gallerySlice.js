@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState =  {
+  items: [],
+  isLoading: false,
+};
+
 export const albumsListSlice = createSlice({
     name: 'albums', 
-    initialState: {
-      items: [],
-      isLoading: false
-    },
+    initialState,
     reducers: {
+        reset: state => initialState,
         getAlbums: state => {
           state.isLoading = true;
         },
@@ -18,14 +21,14 @@ export const albumsListSlice = createSlice({
           state.isLoading = false;
         },
         setCurrentAlbum: (state, action) => {
-          state.currentAlbum = state.items.find(album => album.id === action.payload);
+          state.currentAlbum = state.items.find(album => album.id === action.payload)
         },
         setCurrentImage: (state, action) => {
-          state.currentImage = state.currentAlbum.images.find(image => image.id === action.payload);
+          state.currentImage = state.currentAlbum.images.find(image => image.id === action.payload)
         },
     },
   });
 
-  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum, setCurrentImage } = albumsListSlice.actions;
+  export const { reset, getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum, setCurrentImage } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;
