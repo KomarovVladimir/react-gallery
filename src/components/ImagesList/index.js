@@ -5,12 +5,11 @@ import layout from '../../scss/layout.module.scss';
 import Image from '../Image';
 
 function ImagesList() {
-    const albums = useSelector(state => state.albums);
-    const currentAlbumImages = albums.items.find(item => item.id === albums.currentAlbumId).images;
+    const currentAlbum = useSelector(state => state.albums.currentAlbum);
     
     return (
         <div className={layout.gallery}>
-            {currentAlbumImages.map(image => <Image key={image.id} {...image} />)}
+            {currentAlbum.images.map(image => <Image key={image.id} {...image} />)}
         </div>
     );
 }

@@ -17,12 +17,12 @@ export const albumsListSlice = createSlice({
         getAlbumsFailure: state => {
           state.isLoading = false;
         },
-        setCurrentAlbumId: (state, action) => {
-          state.currentAlbumId = action.payload;
+        setCurrentAlbum: (state, action) => {
+          state.currentAlbum = state.items.find(album => album.id === action.payload);
         }
     },
   });
 
-  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbumId } = albumsListSlice.actions;
+  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;

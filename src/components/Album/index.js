@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { setCurrentAlbumId } from '../../redux/slices/gallerySlice';
+import { setCurrentAlbum } from '../../redux/slices/gallerySlice';
 import styles from './album.module.scss';
 import layout from '../../scss/layout.module.scss';
 
@@ -11,7 +11,7 @@ function Album(props) {
 
     const handleClick = () => {
         history.push(`/album/${props.title}`);
-        dispatch(setCurrentAlbumId(props.id));
+        dispatch(setCurrentAlbum(props.id));
     }
 
     return (
