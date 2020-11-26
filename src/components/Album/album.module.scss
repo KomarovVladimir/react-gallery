@@ -10,14 +10,17 @@
 .meta {
     padding: 1rem .75rem;
     background-color: $black-2;
+    font-family: $main-font;
     color: $white;
 }
 
 .name {
     display: block;
     margin-bottom: 0.75rem;
+    font-size: 1.5rem;
 }
 
 .label {
     display: block;
+    color: $gray;
 }
