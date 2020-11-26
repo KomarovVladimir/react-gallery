@@ -1,6 +1,6 @@
 @import '../../scss/variables';
 
-.albumsList {
+.imagesList {
     display: grid;
     grid-template-columns: minmax(16rem, 1fr);
     grid-gap: 2rem;
@@ -14,6 +14,6 @@
     }
 
     @media screen and (min-width: $lg) {
-        grid-template-columns: repeat(4, minmax(16rem, 1fr));
+        grid-template-columns: repeat(4, minmax(24rem, 1fr));
     }
 }
