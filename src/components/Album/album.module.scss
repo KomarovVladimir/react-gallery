@@ -1,5 +1,10 @@
 .item {
+    position: relative;
+    transition: .3s ease-out;
+
     &:hover {
+        // top: -.5rem;
+        transform: translateY(-.5rem);
         background-color: #afafaf;
     }
 }
@@ -11,8 +16,13 @@
     object-fit: cover;
 }
 
+.meta {
+    padding: 1rem .75rem;
+}
+
 .name {
     display: block;
+    margin-bottom: 0.75rem;
 }
 
 .label {
