@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState =  {
   items: [],
   isLoading: false,
+  popapIsOpenned: false
 };
 
 export const albumsListSlice = createSlice({
@@ -26,9 +27,12 @@ export const albumsListSlice = createSlice({
         setCurrentImage: (state, action) => {
           state.currentImage = state.currentAlbum.images.find(image => image.id === action.payload)
         },
+        switchPopup: state => {
+          state.popapIsOpenned = !state.popapIsOpenned;
+        }
     },
   });
 
-  export const { reset, getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum, setCurrentImage } = albumsListSlice.actions;
+  export const { reset, getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum, setCurrentImage, switchPopup } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;

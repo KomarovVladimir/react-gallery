@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentImage } from '../../redux/slices/gallerySlice';
+import { setCurrentImage, switchPopup } from '../../redux/slices/gallerySlice';
 import styles from './popup.module.scss';
 
 function Popup(props) {
@@ -12,11 +12,15 @@ function Popup(props) {
         dispatch(setCurrentImage(id));
     }
 
+    const handleClose = () => {
+        dispatch(switchPopup());
+    }
+
     return (
         <div className={styles.popup}>
             <div className={styles.content}>
                 <img className={styles.image} src={currentImage.url} alt={props.alt}/>
-                <button className={styles.close}>Close</button>
+                <button className={styles.close} onClick={handleClose}>Close</button>
                 <div className={styles.carousel}>
                     <button className={`${styles.arrow} ${styles.arrowLeft}`}>Left</button>
                     <button className={`${styles.arrow} ${styles.arrowRight}`}>Right</button>

@@ -6,11 +6,11 @@ import layout from '../../scss/layout.module.scss';
 
 function ImagesList() {
     const currentAlbum = useSelector(state => state.albums.currentAlbum);
-    const currentImage = useSelector(state => state.albums.currentImage);
+    const popapIsOpenned = useSelector(state => state.albums.popapIsOpenned);
     
     return (
         <div className={layout.gallery}>
-            {currentImage &&  <Popup />}
+            {popapIsOpenned &&  <Popup />}
             {currentAlbum && currentAlbum.images.map(image => <Image key={image.id} {...image} />)}
         </div>
     );
