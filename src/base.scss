@@ -1,5 +1,8 @@
+@import './scss/variables';
+
 html {
     font-size: 100%;
+    background-color: $black;
 }
 
 body {

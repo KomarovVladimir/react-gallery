@@ -12,7 +12,7 @@ function Album(props) {
 
     return (
         <div className={layout.item} onClick={handleClick}>
-            <img  className={styles.thumbnail} src={props.images[0].thumbnailUrl} alt={props.alt} />
+            <img  className={styles.thumbnail} src={props.images[0].url} alt={props.alt} />
             <div className={styles.meta}>
                 <span className={styles.name}>{props.title}</span>
                 <span className={styles.label}>{props.images.length} images</span>

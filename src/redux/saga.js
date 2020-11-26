@@ -24,25 +24,8 @@ function* requestAlbums() {
     }
 }
 
-// function* requestAlbumImages(action) {
-//     try {
-//         let response = yield fetch(`https://jsonplaceholder.typicode.com/albums/${action.payload}/photos`);
-//         const images = yield response.json();
-
-//         yield put({ type: getAlbumImagesSuccess.type, payload: {
-//             id: action.payload,
-//             thumbnailUrl: images[0].url,
-//             images: [...images],
-//         } });
-//     } catch (error) {
-//         console.error(error);
-//         yield put({ type: getAlbumImagesFailure.type });
-//     }
-// }
-
 function* albumsWatcher() {
     yield takeEvery(getAlbums.type, requestAlbums);
-    // yield takeEvery(getAlbumImages.type, requestAlbumImages);
 }
 
 export default albumsWatcher;
