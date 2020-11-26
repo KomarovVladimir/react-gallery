@@ -5,8 +5,8 @@ function Popup(props) {
     return (
         <div className={styles.popup}>
             <div className={styles.content}>
+                <img className={styles.image} src={props.url} alt={props.alt}/>
                 <button className={styles.close}>Close</button>
-                <img className={styles.image} src={props.src} alt={props.alt}/>
                 <div className={styles.carousel}>
                     <button className={`${styles.arrow} ${styles.arrowLeft}`}>Left</button>
                     <button className={`${styles.arrow} ${styles.arrowRight}`}>Right</button>

@@ -20,22 +20,33 @@
     position: absolute;
     top: 0;
     right: 0;
+    opacity: 0;
+    transition: .3s ease-out;
 }
 
 .image {
     flex: auto;
     margin-bottom: 2rem;
-    background-color: rgb(223, 171, 171);
+    object-fit: contain;
+
+    &:hover + button {
+        opacity: 1;
+    }
 }
 
 .carousel {
     position: relative;
     height: 6rem;
-    background-color: rgb(214, 91, 91);
+
+    &:hover .arrow {
+        opacity: 1;
+    }
 }
 
 .arrow {
     position: absolute;
+    opacity: 0;
+    transition: .3s ease-out;
 
     &Left {
         left: 0;
