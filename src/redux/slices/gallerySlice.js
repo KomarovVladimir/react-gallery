@@ -17,9 +17,12 @@ export const albumsListSlice = createSlice({
         getAlbumsFailure: state => {
           state.isLoading = false;
         },
+        setCurrentAlbumId: (state, action) => {
+          state.currentAlbumId = action.payload;
+        }
     },
   });
 
-  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems } = albumsListSlice.actions;
+  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbumId } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;

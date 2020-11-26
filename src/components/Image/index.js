@@ -1,8 +1,13 @@
 import React from 'react';
-import styles from './Image.scss';
+import layout from '../../scss/layout.module.scss';
+import styles from './image.module.scss';
 
 function Image(props) {
-    return <img  className={styles.thumbnail} src={props.src} alt={props.alt} />;
+    return (
+        <div className={layout.item}>
+            <img className={styles.item} src={props.url} alt={props.title} />
+        </div>
+    );
 }
 
 export default Image;

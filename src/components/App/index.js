@@ -11,7 +11,7 @@ function App() {
           <AlbumList />
         </Route>
         <Route path="/album">
-          {/* <ImagesList /> */}
+          <ImagesList />
         </Route>
       </Switch>
     </Router>
