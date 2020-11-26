@@ -1,0 +1,19 @@
+@import './variables';
+
+.h1 {
+    margin-bottom: 2.5rem;
+    font-family: $main-font;
+    line-height: 1.2;
+    font-size: 2rem;
+    color: $white;
+}
+
+.a {
+    cursor: pointer;
+    text-decoration: none;
+    transition: .3s ease-out;
+
+    &:hover {
+        color: $gray;
+    }
+}

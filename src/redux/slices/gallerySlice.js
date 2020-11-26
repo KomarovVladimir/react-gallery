@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState =  {
   items: [],
   isLoading: false,
-  popapIsOpenned: false
+  popapIsOpenned: false,
+  currentAlbum: {},
+  currentImage: {}
 };
 
 export const albumsListSlice = createSlice({
