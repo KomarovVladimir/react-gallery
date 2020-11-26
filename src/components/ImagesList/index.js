@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styles from './imagesList.module.scss';
 import layout from '../../scss/layout.module.scss';
 import Image from '../Image';
 
@@ -9,7 +8,7 @@ function ImagesList() {
     
     return (
         <div className={layout.gallery}>
-            {currentAlbum.images.map(image => <Image key={image.id} {...image} />)}
+            {currentAlbum && currentAlbum.images.map(image => <Image key={image.id} {...image} />)}
         </div>
     );
 }
