@@ -1,26 +1,21 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getAlbumImages } from '../../redux/slices/gallerySlice';
+import React from 'react';
+import { useHistory } from "react-router-dom";
 import styles from './album.module.scss';
-import gridStyles from '../../scss/grid.module.scss';
+import layout from '../../scss/layout.module.scss';
 
 function Album(props) {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getAlbumImages(props.id));
-    }, []);
+    const history = useHistory();
 
     const handleClick = () => {
-        // dispatch();
+        history.push('/album')
     }
 
     return (
-        <div className={gridStyles.item} onClick={handleClick}>
-            <img  className={styles.thumbnail} src={props.thumbnailUrl} alt={props.alt} />
+        <div className={layout.item} onClick={handleClick}>
+            <img  className={styles.thumbnail} src={props.images[0].thumbnailUrl} alt={props.alt} />
             <div className={styles.meta}>
                 <span className={styles.name}>{props.title}</span>
-                <span className={styles.label}>{props.imagesNumber} images</span>
+                <span className={styles.label}>{props.images.length} images</span>
             </div>
         </div>
     );

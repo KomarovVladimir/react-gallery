@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAlbums } from '../../redux/slices/gallerySlice';
 import Album from '../Album';
-import gridStyles from '../../scss/grid.module.scss';
+import layout from '../../scss/layout.module.scss';
 
 function AlbumsList() {
     const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function AlbumsList() {
     }, []);
     
     return (
-        <div className={gridStyles.gallery}>
+        <div className={layout.gallery}>
             {albums.items.map(album => <Album key={album.id} {...album} />)}
         </div>
     );

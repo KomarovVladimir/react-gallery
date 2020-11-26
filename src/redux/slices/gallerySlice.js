@@ -17,33 +17,34 @@ export const albumsListSlice = createSlice({
         getAlbumsFailure: state => {
           state.isLoading = false;
         },
-        getAlbumImages: (state, action) => {
-          state.items = state.items.map(item => (
-            item.id === action.payload.id ? {
-              ...item, 
-              thumbnailIsLoading: true,
-          } : item));
-        },
-        getAlbumImagesSuccess: (state, action) => {
-          state.items = state.items.map(item => (
-            item.id === action.payload.id ? {
-              ...item, 
-              thumbnailUrl: action.payload.thumbnailUrl,
-              images: action.payload.images,
-              imagesNumber: action.payload.images.length,
-              thumbnailIsLoading: false,
-          } : item));
-        },
-        getAlbumImagesFailure: (state, action) => {
-          state.items = state.items.map(item => (
-            item.id === action.payload.id ? {
-              ...item, 
-              thumbnailIsLoading: false,
-          } : item));
-        },
     },
   });
 
-  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, getAlbumImages, getAlbumImagesSuccess, getAlbumImagesFailure } = albumsListSlice.actions;
+  export const { getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;
+
+  // getAlbumImages: (state, action) => {
+  //   state.items = state.items.map(item => (
+  //     item.id === action.payload.id ? {
+  //       ...item, 
+  //       thumbnailIsLoading: true,
+  //   } : item));
+  // },
+  // getAlbumImagesSuccess: (state, action) => {
+  //   state.items = state.items.map(item => (
+  //     item.id === action.payload.id ? {
+  //       ...item, 
+  //       thumbnailUrl: action.payload.thumbnailUrl,
+  //       images: action.payload.images,
+  //       imagesNumber: action.payload.images.length,
+  //       thumbnailIsLoading: false,
+  //   } : item));
+  // },
+  // getAlbumImagesFailure: (state, action) => {
+  //   state.items = state.items.map(item => (
+  //     item.id === action.payload.id ? {
+  //       ...item, 
+  //       thumbnailIsLoading: false,
+  //   } : item));
+  // },
