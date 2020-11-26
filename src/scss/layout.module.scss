@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: minmax(16rem, 1fr);
     grid-gap: 2rem;
+    align-items: start;
 
     @media screen and (min-width: $sm) {
         grid-template-columns: repeat(2, minmax(16rem, 1fr));
