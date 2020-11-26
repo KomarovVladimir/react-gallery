@@ -67,6 +67,7 @@
         max-height: 100%;
         width: auto;
         transition: .3s ease-out;
+        cursor: pointer;
 
         &:not(:last-of-type) {
             margin-right: 1rem;
