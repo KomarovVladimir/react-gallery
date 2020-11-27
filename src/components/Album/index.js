@@ -16,10 +16,10 @@ function Album(props) {
 
     return (
         <div className={`${layout.item} ${styles.item}`} onClick={handleClick}>
-            <img  className={styles.thumbnail} src={props.images[0].url} alt={props.alt} />
+            <img  className={styles.thumbnail} src={props.thumbnailUrl} alt={props.title} />
             <div className={styles.meta}>
                 <span className={styles.name}>{props.title}</span>
-                <span className={styles.label}>{props.images.length} images</span>
+                <span className={styles.label}>{props.imagesNumber} images</span>
             </div>
         </div>
     );

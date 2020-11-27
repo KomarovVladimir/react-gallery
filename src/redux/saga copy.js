@@ -12,10 +12,9 @@ function* requestAlbums() {
 
         let filledAlbums = [];
         for (let album of albums) {
-            let firstImageResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos?_start=0&_limit=1`);
-            const imagesNumber = firstImageResponse.headers.get('x-total-count');
-            const firstPhoto = yield firstImageResponse.json();
-            filledAlbums.push({...album, thumbnailUrl: firstPhoto[0].url, imagesNumber});
+            let photosResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos?_start=0&_limit=8`);
+            const photos = yield photosResponse.json();
+            filledAlbums.push({...album, images: photos});
         }
         
         yield put({ type: getAlbumsSuccess.type, payload: filledAlbums });
