@@ -6,7 +6,7 @@ import typography from '../../scss/typography.module.scss';
 
 function App() {
   return (
-    <Router basename="/catalog-spa">
+    <Router basename="/react-gallery">
       <Switch>
         <Route exact path='/'>
           <h1 className={typography.h1}>Albums</h1>
