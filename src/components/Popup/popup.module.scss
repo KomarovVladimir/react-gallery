@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+
 .popup {
     position: fixed;
     left: 0;
@@ -35,10 +37,20 @@
     position: absolute;
     top: 0;
     right: 0;
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    background: url('../../images/cross.svg') center no-repeat;
+    background-size: contain;
     opacity: 0;
     transition: .3s ease-out;
+    cursor: pointer;
 
     &:hover {
+        background: url('../../images/crossGray.svg') center no-repeat;
         opacity: 1;
     }
 }
@@ -87,19 +99,42 @@
 
 .arrow {
     position: absolute;
+    height: 100%;
+    width: 4rem;
+    padding: 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    background-size: contain;
     opacity: 0;
     transition: .3s ease-out;
+    cursor: pointer;
     z-index: 1020;
+
+    &:hover {
+        opacity: 1;
+        background-color: rgba(17, 17, 17, 0.7);
+    }
 
     &Left {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
+        background: url('../../images/arrowLeft.svg') center no-repeat;
+
+        &:hover {
+            background: url('../../images/arrowLeft.svg') center no-repeat, rgba(17, 17, 17, 0.7);
+        }
     }
 
     &Right {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+        background: url('../../images/arrowRight.svg') center no-repeat;
+
+        &:hover {
+            background: url('../../images/arrowRight.svg') center no-repeat, rgba(17, 17, 17, 0.7);
+        }
     }
 }
