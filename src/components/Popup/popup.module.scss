@@ -62,10 +62,16 @@
         opacity: 1;
     }
 
+    &Content {
+        position: relative;
+        display: flex;
+        height: 6rem;
+    }
+
     &Item {
         position: relative;
-        max-height: 100%;
-        width: auto;
+        height: auto;
+        max-width: 8rem;
         transition: .3s ease-out;
         cursor: pointer;
 
@@ -75,7 +81,6 @@
 
         &:hover {
             transform: translateY(-.5rem);
-            box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
         }
     }
 }

@@ -16,7 +16,7 @@ function App() {
           <AlbumList />
         </Route>
         <Route path='/album'>
-          <h1 className={typography.h1}><Link className={`${typography.h1} ${typography.a}`} to='/'>Albums</Link> / </h1>
+          <h1 className={typography.h1}><Link className={`${typography.h1} ${typography.a}`} to='/'>Back to albums</Link></h1>
           <ImagesList />
         </Route>
       </Switch>
