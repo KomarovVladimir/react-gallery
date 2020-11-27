@@ -37,32 +37,75 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 3rem;
-    width: 3rem;
+    height: 1rem;
+    width: 1rem;
     padding: 0;
     outline: none;
     border: none;
     background-color: transparent;
     background: url('../../images/cross.svg') center no-repeat;
     background-size: contain;
+    transition: .3s ease-out;
+    cursor: pointer;
+    z-index: 2000;
+
+    @media screen and (min-width: $lg) {
+        height: 2rem;
+        width: 2rem;
+        opacity: 0;
+
+        &:hover {
+            background: url('../../images/crossGray.svg') center no-repeat;
+            opacity: 1;
+        }
+    }
+}
+
+.navigation {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    padding: 0;
+    outline: none;
+    border: none;
     opacity: 0;
     transition: .3s ease-out;
     cursor: pointer;
+    z-index: 1050;
 
-    &:hover {
-        background: url('../../images/crossGray.svg') center no-repeat;
+    @media screen and (min-width: $lg) {
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &Prev {
+        top: 0;
+        left: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+    }
+
+    &Next {
+        top: 0;
+        left: 50%;
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+    }
+}
+
+.viewport {
+    position: relative;
+    display: flex;
+    flex: auto;
+    margin-bottom: 2rem;
+
+    &:hover + button {
         opacity: 1;
     }
 }
 
 .image {
     flex: auto;
-    margin-bottom: 2rem;
     object-fit: contain;
-
-    &:hover + button {
-        opacity: 1;
-    }
 }
 
 .carousel {
@@ -106,14 +149,16 @@
     border: none;
     background-color: transparent;
     background-size: contain;
-    opacity: 0;
     transition: .3s ease-out;
     cursor: pointer;
     z-index: 1020;
 
-    &:hover {
-        opacity: 1;
-        background-color: rgba(17, 17, 17, 0.7);
+    @media screen and (min-width: $lg) {
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     &Left {
@@ -122,8 +167,10 @@
         transform: translateY(-50%);
         background: url('../../images/arrowLeft.svg') center no-repeat;
 
-        &:hover {
-            background: url('../../images/arrowLeft.svg') center no-repeat, rgba(17, 17, 17, 0.7);
+        @media screen and (min-width: $lg) {
+            &:hover {
+                background: url('../../images/arrowLeft.svg') center no-repeat, rgba(17, 17, 17, 0.7);
+            }
         }
     }
 
@@ -133,8 +180,10 @@
         transform: translateY(-50%);
         background: url('../../images/arrowRight.svg') center no-repeat;
 
-        &:hover {
-            background: url('../../images/arrowRight.svg') center no-repeat, rgba(17, 17, 17, 0.7);
+        @media screen and (min-width: $lg) {
+            &:hover {
+                background: url('../../images/arrowRight.svg') center no-repeat, rgba(17, 17, 17, 0.7);
+            }
         }
     }
 }
