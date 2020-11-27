@@ -33,10 +33,10 @@ function Popup(props) {
         <div className={styles.popup}>
             <div className={styles.content}>
                 <img className={styles.image} src={currentImage.url} alt={props.alt}/>
-                <button className={styles.close} onClick={handleClose}>Close</button>
+                <button className={styles.close} onClick={handleClose} />
                 <div className={styles.carousel}>
-                    {offset > 0 && <button className={`${styles.arrow} ${styles.arrowLeft}`} onClick={handleLeftClick}>Left</button>}
-                    {offset < currentAlbumImages.length - 1 && <button className={`${styles.arrow} ${styles.arrowRight}`} onClick={handleRightClick}>Right</button>}
+                    {offset > 0 && <button className={`${styles.arrow} ${styles.arrowLeft}`} onClick={handleLeftClick} />}
+                    {offset < currentAlbumImages.length - 1 && <button className={`${styles.arrow} ${styles.arrowRight}`} onClick={handleRightClick} />}
                     <div className={styles.carouselContent} style={{left: -offset * 9 + 'rem'}}>
                         {currentAlbumImages && currentAlbumImages.map(image => <img 
                             key={image.id} 
