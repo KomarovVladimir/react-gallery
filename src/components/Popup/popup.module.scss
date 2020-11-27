@@ -47,6 +47,7 @@
     background-size: contain;
     transition: .3s ease-out;
     cursor: pointer;
+    z-index: 2000;
 
     @media screen and (min-width: $lg) {
         height: 2rem;
@@ -60,14 +61,51 @@
     }
 }
 
-.image {
+.navigation {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    padding: 0;
+    outline: none;
+    border: none;
+    opacity: 0;
+    transition: .3s ease-out;
+    cursor: pointer;
+    z-index: 1050;
+
+    @media screen and (min-width: $lg) {
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &Prev {
+        top: 0;
+        left: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+    }
+
+    &Next {
+        top: 0;
+        left: 50%;
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 50%);
+    }
+}
+
+.viewport {
+    position: relative;
+    display: flex;
     flex: auto;
     margin-bottom: 2rem;
-    object-fit: contain;
 
     &:hover + button {
         opacity: 1;
     }
+}
+
+.image {
+    flex: auto;
+    object-fit: contain;
 }
 
 .carousel {

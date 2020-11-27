@@ -32,7 +32,11 @@ function Popup(props) {
     return (
         <div className={styles.popup}>
             <div className={styles.content}>
-                <img className={styles.image} src={currentImage.url} alt={props.alt}/>
+                <div className={styles.viewport}>
+                    <img className={styles.image} src={currentImage.url} alt={props.alt}/>
+                    <button className={`${styles.navigation} ${styles.navigationPrev}`} />
+                    <button className={`${styles.navigation} ${styles.navigationNext}`} />
+                </div>
                 <button className={styles.close} onClick={handleClose} />
                 <div className={styles.carousel}>
                     {offset > 0 && <button className={`${styles.arrow} ${styles.arrowLeft}`} onClick={handleLeftClick} />}
