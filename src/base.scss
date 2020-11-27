@@ -1,0 +1,12 @@
+@import './scss/variables';
+
+html {
+    font-size: 100%;
+    background-color: $black;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 4rem 2rem;
+}
