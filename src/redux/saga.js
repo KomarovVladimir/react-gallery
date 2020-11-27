@@ -2,12 +2,15 @@ import { put, takeEvery } from 'redux-saga/effects';
 import { 
     getAlbums,
     getAlbumsSuccess,
-    getAlbumsFailure
+    getAlbumsFailure, 
+    getAlbumImages, 
+    getAlbumImagesSuccess,
+    getAlbumImagesFailure,
 } from './slices/gallerySlice';
 
 function* requestAlbums() {
     try {
-        let albumsResponse = yield fetch('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=8');
+        let albumsResponse = yield fetch('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=16');
         const albums = yield albumsResponse.json();
 
         let filledAlbums = [];
@@ -25,8 +28,21 @@ function* requestAlbums() {
     }
 }
 
+function* requestAlbumImages(action) {
+    try {
+        let albumImagesResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${action.payload}/photos`);
+        const albumImages = yield albumImagesResponse.json();
+        
+        yield put({ type: getAlbumImagesSuccess.type, payload: albumImages });
+    } catch (error) {
+        console.error(error);
+        yield put({ type: getAlbumImagesFailure.type });
+    }
+}
+
 function* albumsWatcher() {
     yield takeEvery(getAlbums.type, requestAlbums);
+    yield takeEvery(getAlbumImages.type, requestAlbumImages);
 }
 
 export default albumsWatcher;

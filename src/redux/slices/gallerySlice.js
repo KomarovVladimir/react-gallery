@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState =  {
   items: [],
+  currentAlbumImages: [],
+  currentImage: {},
   isLoading: false,
   popapIsOpenned: false,
-  currentAlbum: {},
-  currentImage: {}
 };
 
 export const albumsListSlice = createSlice({
@@ -23,18 +23,52 @@ export const albumsListSlice = createSlice({
         getAlbumsFailure: state => {
           state.isLoading = false;
         },
-        setCurrentAlbum: (state, action) => {
-          state.currentAlbum = state.items.find(album => album.id === action.payload)
+        setCurrentAlbumId: (state, action) => {
+          state.currentAlbumId = action.payload;
+        },
+        getAlbumImages: state => {
+          state.isLoading = true;
+        },
+        getAlbumImagesSuccess: (state, action) => {
+          state.isLoading = false;
+          state.currentAlbumImages = [...action.payload];
+        },
+        getAlbumImagesFailure: state => {
+          state.isLoading = false;
+        },
+        getImages: state => {
+          state.isLoading = true;
+        },
+        getImagesSuccess: (state, action) => {
+          state.isLoading = false;
+          state.items = [...action.payload];
+        },
+        getImagesFailure: state => {
+          state.isLoading = false;
         },
         setCurrentImage: (state, action) => {
-          state.currentImage = state.currentAlbum.images.find(image => image.id === action.payload)
+          state.currentImage = state.currentAlbumImages.find(image => image.id === action.payload);
         },
-        switchPopup: state => {
-          state.popapIsOpenned = !state.popapIsOpenned;
+        openPopup: state => {
+          state.popapIsOpenned = true;
+        },
+        closePopup: state => {
+          state.popapIsOpenned = false;
         }
     },
   });
 
-  export const { reset, getAlbums, getAlbumsSuccess, getAlbumsFailure, updateItems, setCurrentAlbum, setCurrentImage, switchPopup } = albumsListSlice.actions;
+  export const { 
+    reset,
+    getAlbums,
+    getAlbumsSuccess,
+    getAlbumsFailure,
+    getAlbumImages,
+    getAlbumImagesSuccess,
+    getAlbumImagesFailure,
+    setCurrentAlbumId,
+    setCurrentImage,
+    openPopup,
+    closePopup } = albumsListSlice.actions;
   
   export default albumsListSlice.reducer;

@@ -6,7 +6,7 @@ import ImagesList from '../ImagesList';
 import typography from '../../scss/typography.module.scss';
 
 function App() {
-  const currentAlbumTitle = useSelector(state => state.albums.currentAlbum.title);
+  // const currentAlbumTitle = useSelector(state => state.albums.currentAlbum.title);
 
   return (
     <Router>
@@ -16,7 +16,7 @@ function App() {
           <AlbumList />
         </Route>
         <Route path='/album'>
-          <h1 className={typography.h1}><Link className={`${typography.h1} ${typography.a}`} to='/'>Albums</Link> / {currentAlbumTitle}</h1>
+          <h1 className={typography.h1}><Link className={`${typography.h1} ${typography.a}`} to='/'>Albums</Link> / </h1>
           <ImagesList />
         </Route>
       </Switch>

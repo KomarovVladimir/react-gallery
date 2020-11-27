@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentImage, switchPopup } from '../../redux/slices/gallerySlice';
+import { setCurrentImage, openPopup } from '../../redux/slices/gallerySlice';
 import layout from '../../scss/layout.module.scss';
 import styles from './image.module.scss';
 
@@ -8,7 +8,7 @@ function Image(props) {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        dispatch(switchPopup());
+        dispatch(openPopup());
         dispatch(setCurrentImage(props.id));
     }
 
