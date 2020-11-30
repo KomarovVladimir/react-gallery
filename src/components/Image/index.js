@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentImage, openPopup } from '../../redux/slices/gallerySlice';
+import { setCurrentImage, openPopup } from '../../redux/slices/albumsSlice';
 import layout from '../../scss/layout.module.scss';
 import styles from './image.module.scss';
 

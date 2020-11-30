@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAlbumImages } from '../../redux/slices/gallerySlice';
+import { getAlbumImages } from '../../redux/slices/albumsSlice';
 import Image from '../Image';
 import Popup from '../Popup';
 import layout from '../../scss/layout.module.scss';

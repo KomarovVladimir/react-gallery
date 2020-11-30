@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCurrentImage, closePopup } from '../../redux/slices/gallerySlice';
+import { setCurrentImage, closePopup } from '../../redux/slices/albumsSlice';
 import styles from './popup.module.scss';
 
 function Popup(props) {

@@ -1,4 +1,4 @@
-import { put, takeEvery, select } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import { 
     getAlbums,
     getAlbumsSuccess,
@@ -9,7 +9,7 @@ import {
     getAlbumMeta,
     getAlbumMetaSuccess,
     getAlbumMetaFailure
-} from './slices/gallerySlice';
+} from './slices/albumsSlice';
 
 function* requestAlbums() {
     try {

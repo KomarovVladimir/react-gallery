@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { setCurrentAlbumId, getAlbumMeta } from '../../redux/slices/gallerySlice';
+import { setCurrentAlbumId, getAlbumMeta } from '../../redux/slices/albumsSlice';
 import styles from './album.module.scss';
 import layout from '../../scss/layout.module.scss';
 
@@ -14,7 +14,7 @@ function Album(props) {
     }, [])
     
     const handleClick = () => {
-        history.push(`/album/${props.title}`);
+        history.push(`/album/${props.id}`);
         dispatch(setCurrentAlbumId(props.id));
     }
 

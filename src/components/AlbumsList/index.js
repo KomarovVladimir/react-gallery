@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAlbums, reset } from '../../redux/slices/gallerySlice';
+import { getAlbums, reset } from '../../redux/slices/albumsSlice';
 import Album from '../Album';
 import layout from '../../scss/layout.module.scss';
 
