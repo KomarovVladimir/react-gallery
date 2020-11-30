@@ -1,0 +1,28 @@
+@import '../../scss/variables';
+
+.loader {
+    content: '';
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        position: relative;
+        height: .25rem;
+        background-color: #2f8ce2;
+
+        animation: loading 1s ease-in-out infinite;
+    }
+}
+
+@keyframes loading {
+    0% { 
+        width: 30%;
+        left: -30%;
+     }
+
+    100% { 
+        width: 5%;
+        left: 100%;
+     }
+}
