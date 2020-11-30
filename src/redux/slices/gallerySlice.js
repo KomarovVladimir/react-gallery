@@ -23,14 +23,17 @@ export const albumsListSlice = createSlice({
         getAlbumsFailure: state => {
           state.isLoading = false;
         },
-        getAlbumsMeta: state => {
+        getAlbumMeta: state => {
           state.isLoading = true;
         },
-        getAlbumsMetaSuccess: (state, action) => {
+        getAlbumMetaSuccess: (state, action) => {
           state.isLoading = false;
-          state.albumsMeta = [...action.payload];
+          state.items = state.items.map(album => album.id === action.payload.albumId ? {...album, 
+            imagesNumber: action.payload.imagesNumber,
+            thumbnailUrl: action.payload.thumbnailUrl
+          } : album);
         },
-        getAlbumsMetaFailure: state => {
+        getAlbumMetaFailure: state => {
           state.isLoading = false;
         },
         setCurrentAlbumId: (state, action) => {
@@ -73,9 +76,9 @@ export const albumsListSlice = createSlice({
     getAlbums,
     getAlbumsSuccess,
     getAlbumsFailure,
-    getAlbumsMeta,
-    getAlbumsMetaSuccess,
-    getAlbumsMetaFailure,
+    getAlbumMeta,
+    getAlbumMetaSuccess,
+    getAlbumMetaFailure,
     getAlbumImages,
     getAlbumImagesSuccess,
     getAlbumImagesFailure,

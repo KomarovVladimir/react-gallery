@@ -6,40 +6,40 @@ import {
     getAlbumImages, 
     getAlbumImagesSuccess,
     getAlbumImagesFailure,
-    getAlbumsMeta,
-    getAlbumsMetaSuccess,
-    getAlbumsMetaFailure
+    getAlbumMeta,
+    getAlbumMetaSuccess,
+    getAlbumMetaFailure
 } from './slices/gallerySlice';
 
 function* requestAlbums() {
     try {
-        let albumsResponse = yield fetch('https://jsonplaceholder.typicode.com/albums?_start=0&_limit=16');
+        let albumsResponse = yield fetch('https://jsonplaceholder.typicode.com/albums');
         const albums = yield albumsResponse.json();
 
         yield put({ type: getAlbumsSuccess.type, payload: albums });
-
-        yield put({ type: getAlbumsMeta.type, payload: albums });
     } catch (error) {
         console.error(error);
         yield put({ type: getAlbumsFailure.type });
     }
 }
 
-function* requestAlbumsMeta(action) {
+function* requestAlbumMeta(action) {
     try {
-        let albumsMeta = [];
-
-        for (let album of action.payload) {
-            let firstImageResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${album.id}/photos?_start=0&_limit=1`);
-            const imagesNumber = firstImageResponse.headers.get('x-total-count');
-            const firstPhoto = yield firstImageResponse.json();
-            albumsMeta.push({thumbnailUrl: firstPhoto[0].url, imagesNumber, albumId: firstPhoto[0].albumId});
-        }
+        let firstImageResponse = yield fetch(`https://jsonplaceholder.typicode.com/albums/${action.payload}/photos?_start=0&_limit=1`);
+        const imagesNumber = firstImageResponse.headers.get('x-total-count');
+        const firstPhoto = yield firstImageResponse.json();
         
-        yield put({ type: getAlbumsMetaSuccess.type, payload: albumsMeta });
+        yield put({
+            type: getAlbumMetaSuccess.type, 
+            payload: {
+                thumbnailUrl: firstPhoto[0].url,
+                imagesNumber,
+                albumId: firstPhoto[0].albumId
+            }
+        });
     } catch (error) {
         console.error(error);
-        yield put({ type: getAlbumsMetaFailure.type });
+        yield put({ type: getAlbumMetaFailure.type });
     }
 }
 
@@ -58,7 +58,7 @@ function* requestAlbumImages(action) {
 function* albumsWatcher() {
     yield takeEvery(getAlbums.type, requestAlbums);
     yield takeEvery(getAlbumImages.type, requestAlbumImages);
-    yield takeEvery(getAlbumsMeta.type, requestAlbumsMeta);
+    yield takeEvery(getAlbumMeta.type, requestAlbumMeta);
 }
 
 export default albumsWatcher;
