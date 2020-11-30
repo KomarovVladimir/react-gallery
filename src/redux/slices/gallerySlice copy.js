@@ -23,16 +23,6 @@ export const albumsListSlice = createSlice({
         getAlbumsFailure: state => {
           state.isLoading = false;
         },
-        getAlbumsMeta: state => {
-          state.isLoading = true;
-        },
-        getAlbumsMetaSuccess: (state, action) => {
-          state.isLoading = false;
-          state.albumsMeta = [...action.payload];
-        },
-        getAlbumsMetaFailure: state => {
-          state.isLoading = false;
-        },
         setCurrentAlbumId: (state, action) => {
           state.currentAlbumId = action.payload;
         },
@@ -73,9 +63,6 @@ export const albumsListSlice = createSlice({
     getAlbums,
     getAlbumsSuccess,
     getAlbumsFailure,
-    getAlbumsMeta,
-    getAlbumsMetaSuccess,
-    getAlbumsMetaFailure,
     getAlbumImages,
     getAlbumImagesSuccess,
     getAlbumImagesFailure,
